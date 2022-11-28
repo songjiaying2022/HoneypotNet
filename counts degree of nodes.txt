@@ -1,0 +1,27 @@
+#the degree of all honeypot seeds
+
+match (n:Honeypots) with n, size((n)<-[]-()) as s return s;
+
+#the degree of honeypots seed have 0-day honeypots
+
+match (n:Honeypots{name: '0xe65c53087e1a40b7c53b9a0ea3c2562ae2dfeb24'}) with n, size((n)<-[]-()) as s return s;
+match (n:Honeypots{name: '0x81edefc64aabdce71f68347774bd4673d1d31419'}) with n, size((n)<-[]-()) as s return s;
+match (n:Honeypots{name: '0x70c01853e4430cae353c9a7ae232a6a95f6cafd9'}) with n, size((n)<-[]-()) as s return s;
+match (n:Honeypots{name: '0x2075d158924f5030aece55179848c2bd7ec5833f'}) with n, size((n)<-[]-()) as s return s;
+match (n:Honeypots{name: '0xff41067fe843f190482d998a9976c7b19cd7c8b7'}) with n, size((n)<-[]-()) as s return s;
+
+#the degree of all honeypot seed creators
+
+MATCH (n:CreatorofSeedHoneypots) RETURN n LIMIT 25
+match (n:CreatorofSeedHoneypots) with n, size((n)-[]->()) as s return s;
+
+#the degree of honeypots seed creators have 0-day honeypots
+
+match (n:CreatorofSeedHoneypots{name: '0xc54100fc034d412c21ba92ccf2d916374ac22555'}) with n, size((n)-[]->())  as s return s;
+match (n:CreatorofSeedHoneypots{name: '0x52638f6d7bd771fef4894397a7a91dcd7a16a88e'}) with n, size((n)-[]->())  as s return s;
+match (n:CreatorofSeedHoneypots{name: '0x9b448181e6c2a947c64bc1944455a81123d1f5ff'}) with n, size((n)-[]->())  as s return s;
+
+
+
+
+

@@ -1,0 +1,34 @@
+LOAD EOA:
+
+load csv with headers from 'file:///node1_Honeypots_creators.csv' as line merge(n:CreatorofSeedHoneypots{name:line.EOA,desc:line.lable}) return n
+
+load csv with headers from 'file:///node2_EOA_Txns_with_creators.csv' as line merge(n:EOATxnCreator{name:line.EOA,desc:line.lable}) return n
+
+load csv with headers from 'file:///node3_EOA_trapped_by_Honeypots.csv' as line merge(n:EOATrapped{name:line.EOA,desc:line.lable}) return n
+
+LOAD CA
+load csv with headers from 'file:///node4_Honeypots.csv' as line create(n:Honeypots{name:line.toAddr,desc:line.isSeed,contractStat:line.contractStat,contractName:line.contractName,compilerVersion:line.compilerVersion,honeypot_type:line.honeypot_type,block_heitht:line.block_heitht}) return n
+
+load csv with headers from 'file:///node5_newHoneypots.csv' as line create(n:newHoneypots{name:line.toAddr,desc:line.isSeed,contractStat:line.contractStat,contractName:line.contractName,compilerVersion:line.compilerVersion,honeypot_type:line.honeypot_type}) return n
+
+load csv with headers from 'file:///node6_CA.csv' as line create(n:CA{name:line.toAddr,desc:line.isSeed,contractStat:line.contractStat,contractName:line.contractName,compilerVersion:line.compilerVersion}) return n
+
+LOAD RELATIONSHIPS
+
+load csv with headers from 'file:///R1_Honeypots_creator_create_block.csv' as line MATCH(from:CreatorofSeedHoneypots{name:line.creator}),(to:Honeypots{name:line.Honeypots}) MERGE (from)-[r:create{property:line.relation}]->(to)
+
+load csv with headers from 'file:///R2_teoa_honeyposts.csv' as line MATCH(from:EOATrapped{name:line.teoa}),(to:Honeypots{name:line.Honeypots}) MERGE (from)-[r:trapped{property:line.relation}]->(to)
+
+load csv with headers from 'file:///R3_teoa_participate_sc.csv' as line MATCH(from:EOATrapped{name:line.teoa}),(to:CA{name:line.ca}) MERGE (from)-[r:call{property:line.relation}]->(to)
+
+load csv with headers from 'file:///R3.1_teoa_new_honeypot.csv' as line MATCH(from:EOATrapped{name:line.teoa}),(to:newHonpeypots{name:line.newHoneypots}) MERGE (from)-[r:trapped{property:line.relation}]->(to)
+
+load csv with headers from 'file:///R4_creators_newsc.csv' as line MATCH(from:CreatorofSeedHoneypots{name:line.creators}),(to:CA{name:line.new_ca}) MERGE (from)-[r:create{property:line.relation}]->(to)
+
+load csv with headers from 'file:///R4.1_creators_newhoneypot.csv' as line MATCH(from:CreatorofSeedHoneypots{name:line.creators}),(to:newHonpeypots{name:line.newHoneypots}) MERGE (from)-[r:create{property:line.relation}]->(to)
+
+load csv with headers from 'file:///R5_creators_eoa.csv' as line MATCH(from:CreatorofSeedHoneypots{name:line.creators}),(to:EOATxnCreator{name:line.eoa}) MERGE (from)-[r:txn{property:line.relation}]->(to)
+
+load csv with headers from 'file:///R6_FG2_1_creators_sc.csv' as line MATCH(from:EOATxnCreator{name:line.eoa}),(to:CA{name:line.ca}) MERGE (from)-[r:create{property:line.relation}]->(to)
+
+load csv with headers from 'file:///R6.1_FG2_1_creators_newhoneypots.csv' as line MATCH(from:EOATxnCreator{name:line.eoa}),(to:newHonpeypots{name:line.newHoneypots}) MERGE (from)-[r:create{property:line.relation}]->(to)
