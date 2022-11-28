@@ -1,2 +1,2 @@
 # HoneypotNet2022
-we put the useful data in paper HoneypotNet here to public
+Code and Data for the paper "Using Transaction Graph to Mind 0-Day Smart Contract Honeypot in Ethereum"
