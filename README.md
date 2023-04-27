@@ -1,5 +1,6 @@
 # HoneypotNet2022
-Code and Data for the paper "Using Transaction Graph to Mind 0-Day Smart Contract Honeypot in Ethereum" 
+Code and Data for the paper "Using Knowledge Graph to Reveal the Transaction Network of
+Honeypots in Ethereum Smart Contracts" 
 
 (1)Honeypot Creators Community.csv 
 
