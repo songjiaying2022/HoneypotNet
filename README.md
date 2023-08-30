@@ -1,6 +1,5 @@
 # HoneypotNet2022
-Code and Data for the paper "Using Knowledge Graph to Reveal the Transaction Network of
-Honeypots in Ethereum Smart Contracts" 
+Code and Data for the paper "HoneypotRank: A SCTB-based approach for analyzing honeypots in Ethereum" 
 
 (1)Honeypot Creators Community.csv 
 
