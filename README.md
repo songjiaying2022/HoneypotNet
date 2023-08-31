@@ -1,4 +1,4 @@
-# HoneypotNet2022
+# HoneypotNet
 Code and Data for the paper "HoneypotRank: A SCTB-based approach for analyzing honeypots in Ethereum" 
 
 (1)Honeypot Creators Community.csv 
