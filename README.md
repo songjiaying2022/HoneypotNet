@@ -3,7 +3,7 @@ Code and Data for the paper "HoneypotRank: A SCTB-based approach for analyzing h
 
 (1)Honeypot Creators Community.csv 
 
-It lists the account of Honeypot Creators Community in 5.3 Explore the Community of Honeypot Creators of paper.
+It lists the account of Honeypot Creators Community in 4.3.2. The Attackers Commun of paper.
 
 (2) the file of node*.csv and R*.csv 
 
